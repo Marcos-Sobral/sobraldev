@@ -1,101 +1,107 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="icon" href="Assets/img/logo/3.png"  type="image/x-icon">
-    <title>TESTE - Sobral Dev</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabela em Formato de Cartões com Bootstrap</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    @media (max-width: 768px) {
+      .table-card {
+        display: block;
+        width: 100%;
+      }
+      .table-card thead {
+        display: none;
+      }
+      .table-card tbody {
+        display: block;
+      }
+      .table-card tbody tr {
+        display: block;
+        margin-bottom: 1rem;
+        border: 1px solid #ddd;
+        border-radius: .25rem;
+        padding: 1rem;
+      }
+      .table-card tbody tr td {
+        display: block;
+        text-align: right;
+        padding: .5rem 1rem;
+        border-bottom: 1px solid #ddd;
+        position: relative;
+      }
+      .table-card tbody tr td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 0;
+        width: 40%;
+        padding-left: .5rem;
+        font-weight: bold;
+        white-space: nowrap;
+        text-align: left;
+      }
+      .table-card tbody tr td:last-child {
+        border-bottom: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-    
-    <main>
-<!-- Button trigger modal 1 -->
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
-    Launch demo modal 1
-  </button>
-  
-  <!-- Modal 1 -->
-  <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel1" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel1">Modal title 1</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Content for modal 1
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
+  <div class="container mt-5">
+    <div class="table-responsive">
+      <table class="table table-card">
+        <thead class="thead-light">
+          <tr>
+            <th>#</th>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Telefone</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="#">1</td>
+            <td data-label="Nome">João Silva</td>
+            <td data-label="Email">joao.silva@example.com</td>
+            <td data-label="Telefone">(11) 1234-5678</td>
+            <td data-label="Ações">
+              <div class="d-flex">
+                <button class="btn btn-primary btn-sm me-2">Editar</button>
+                <button class="btn btn-danger btn-sm">Deletar</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="#">2</td>
+            <td data-label="Nome">Maria Oliveira</td>
+            <td data-label="Email">maria.oliveira@example.com</td>
+            <td data-label="Telefone">(21) 9876-5432</td>
+            <td data-label="Ações">
+              <div class="d-flex">
+                <button class="btn btn-primary btn-sm me-2">Editar</button>
+                <button class="btn btn-danger btn-sm">Deletar</button>
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td data-label="#">3</td>
+            <td data-label="Nome">Carlos Souza</td>
+            <td data-label="Email">carlos.souza@example.com</td>
+            <td data-label="Telefone">(31) 4567-1234</td>
+            <td data-label="Ações">
+              <div class="d-flex">
+                <button class="btn btn-primary btn-sm me-2">Editar</button>
+                <button class="btn btn-danger btn-sm">Deletar</button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  
-  <!-- Button trigger modal 2 -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal2">
-    Launch demo modal 2
-  </button>
-  
-  <!-- Modal 2 -->
-  <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel2" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel2">Modal title 2</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Content for modal 2
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Button trigger modal 3 -->
-  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal3">
-    Launch demo modal 3
-  </button>
-  
-  <!-- Modal 3 -->
-  <div class="modal fade" id="exampleModal3" tabindex="-1" aria-labelledby="exampleModalLabel3" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="exampleModalLabel3">Modal title 3</h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          Content for modal 3
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-    </main>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-    crossorigin="anonymous">
-    </script>   
-    <script src="https://kit.fontawesome.com/7d7b31a9bc.js" crossorigin="anonymous"></script>
-    <script>
-        const myModal = document.getElementById('Modal')
-        const myInput = document.getElementById('myInput')
-
-        myModal.addEventListener('shown.bs.modal', () => {
-        myInput.focus()
-        })
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
 </body>
 </html>
